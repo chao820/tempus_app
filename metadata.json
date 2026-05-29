@@ -1,6 +1,0 @@
-{
-  "name": "TEMPUS 逆時防線",
-  "description": "融合結構化拖延理論與認知行為療法（CBT）的時間對抗防線，協助使用者突破時間盲感與對抗拖延。",
-  "requestFramePermissions": ["camera"],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
