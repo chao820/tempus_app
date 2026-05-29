@@ -1,25 +1,8 @@
-import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/react-swc' // 或者 @vitejs/plugin-react，看你原本是哪一個
 
-export default defineConfig(() => {
-  return {
-    plugins: [react(), tailwindcss()],
-    define: {
-      'process.env.GOOGLE_MAPS_PLATFORM_KEY': JSON.stringify(process.env.GOOGLE_MAPS_PLATFORM_KEY || '')
-    },
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, '.'),
-      },
-    },
-    server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
-      hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
-    },
-  };
-});
+// https://vitejs.dev/config/
+export default defineConfig({
+  base: '/tempus-逆時防線/', // 🔥 必須加上這行，告訴瀏覽器你的資料夾叫這個名字！
+  plugins: [react()],
+})
